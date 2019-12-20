@@ -3,7 +3,7 @@
 {% block content %}
 <form>
 {% csrf_token %}
-  <div class="form-group">
+  <div class="form-group" action = '/blog/contact' method = 'post'>
     <label for="name">Name</label>
     <input type="text" class="form-control" id="name" placeholder="Enter Name">
   </div>
