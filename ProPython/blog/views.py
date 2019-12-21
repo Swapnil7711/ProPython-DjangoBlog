@@ -49,3 +49,10 @@ def contact(request):
 
     return render(request, "blog/contact.html")
 
+
+def search(request):
+    param = request.GET["query"]
+    posts = Post.objects.filter(title__icontains=param)
+    context = {"posts": posts}
+    return render(request, "blog/search.html", context)
+
