@@ -1,30 +1,30 @@
 from django.shortcuts import render
-from .models import Contact
+from .models import Contact, Post
 from django.contrib import messages
 
 # Create your views here.
 
 
-posts = [
-    {
-        "author": "swapnil",
-        "title": "First blog 1",
-        "content": "first content",
-        "date_posted": "Dec 19, 2019",
-    },
-    {
-        "author": "swapnilH",
-        "title": "First blog 2",
-        "content": "second content",
-        "date_posted": "Dec 20, 2019",
-    },
-]
+# posts = [
+#     {
+#         "author": "swapnil",
+#         "title": "First blog 1",
+#         "content": "first content",
+#         "date_posted": "Dec 19, 2019",
+#     },
+#     {
+#         "author": "swapnilH",
+#         "title": "First blog 2",
+#         "content": "second content",
+#         "date_posted": "Dec 20, 2019",
+#     },
+# ]
 
 
 def home(request):
 
     context = {
-        "posts": posts,
+        "posts": Post.objects.all(),
     }
 
     return render(request, "blog/home.html", context)
