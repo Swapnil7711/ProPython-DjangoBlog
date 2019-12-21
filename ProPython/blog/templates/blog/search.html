@@ -4,6 +4,20 @@
 
 {% block content %}
 <h3>Search Results: </h3>
+
+    {% if posts|length < 1 %}
+    
+    
+    <b>Your search -</b>  {{query}} - did not match any documents. <br>
+
+<b> Suggestions: </b> 
+
+<li> Make sure that all words are spelled correctly.</li> 
+<li> Try different keywords.</li> 
+<li> Try more general keywords.</li> 
+
+    {% endif %}
+
     {% for post in posts %}
         <article class="media content-section">
           <div class="media-body">

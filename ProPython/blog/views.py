@@ -52,7 +52,15 @@ def contact(request):
 
 def search(request):
     param = request.GET["query"]
-    posts = Post.objects.filter(title__icontains=param)
-    context = {"posts": posts}
+
+    if len(param) > 50:
+        posts = Post.objects.none()
+    else:
+        postsTitle = Post.objects.filter(title__icontains=param)
+        postsContent = Post.objects.filter(content__icontains=param)
+        posts = postsTitle.union(postsContent)
+    if posts.count() == 0:
+        messages.warning(request, "No search results found, Please provide valid query")
+    context = {"posts": posts, "query": param}
     return render(request, "blog/search.html", context)
 
