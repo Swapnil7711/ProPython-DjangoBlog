@@ -43,14 +43,16 @@
             </div>
           </div>
           <form method = "GET" action = "/search" class="form-inline my-2 my-lg-0" style="margin-left: 10px">
-      <input class="form-control mr-sm-2" type="search"  name = "query" id = "query" placeholder="Search ProPython" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2 " type="search"  name = "query" id = "query" placeholder="Search ProPython" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
       </nav>
     </header>
-       <!-- messages -->
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
 
-{% if messages %}
+
 {% for message in messages %}
    <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
   <strong>Message: </strong> {{message}}
@@ -59,10 +61,8 @@
   </button>
 </div>
 {% endfor %}
-{% endif %}
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8">
+
+
           {% block content %}{% endblock %}
         </div>
         <div class="col-md-4">
@@ -80,6 +80,11 @@
         </div>
       </div>
     </main>
+
+       <!-- messages -->
+
+
+
 
 
     <!-- Optional JavaScript -->
