@@ -39,8 +39,16 @@
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="#">Register</a>
+
+            {% if user.is_authenticated %}
+             <a class="nav-item nav-link {% block profileactive %}  {% endblock profileactive %}" href="{% url 'profile' %}">Profile</a>
+              <a class="nav-item nav-link {% block logoutactive %}  {% endblock logoutactive %}" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+
+              <a class="nav-item nav-link {% block loginactive %}  {% endblock loginactive %}" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link {% block registeractive %}  {% endblock registeractive %}" href="{% url 'register' %}">Register</a>
+             {% endif %}
+ 
             </div>
            </div> 
           <form method = "GET" action = "/search" class="form-inline my-2 my-lg-0" style="margin-left: 10px">
