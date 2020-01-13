@@ -125,7 +125,15 @@ MESSAGE_TAGS = {
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
+# where to send user after login
 LOGIN_REDIRECT_URL = "blog-home"
 
+# login url
 LOGIN_URL = "login"
+
+# media urls for images profile
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = "/media/"
 
