@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+
+                <legend class="border-bottom mb-4"> Are You Sure? </legend>
+                <button class="btn btn-outline-info" type="submit">Yes, Delete</button>
+                <a class= "muted" href="{% url 'post-detail' object.pk %}">Cancel</a>
+            </div>
+        </form>
+      </div> 
+{% endblock content %}
